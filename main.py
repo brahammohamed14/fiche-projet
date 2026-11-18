@@ -26,16 +26,20 @@ while True:
                 print(f"{i}. {tache}")
 
     elif choix == "3":
-        mot_cle = input("Mot-clé à rechercher : ")
-        trouve = False
+        mot_cle = input("Mot-clé à rechercher : ").strip()
 
-        for i, tache in enumerate(taches, start=1):
-            if mot_cle.lower() in tache.lower():
-                print(f"{i}. {tache}")
-                trouve = True
+        if mot_cle == "":
+            print("Erreur : le mot-clé ne peut pas être vide.")
+        else:
+            trouve = False
 
-        if not trouve:
-            print("Aucune tâche trouvée.")        
+            for i, tache in enumerate(taches, start=1):
+                if mot_cle.lower() in tache.lower():
+                    print(f"{i}. {tache}")
+                    trouve = True
+
+            if not trouve:
+                print("Aucune tâche trouvée.")       
 
     elif choix == "0":
         print("vous quittez !")
